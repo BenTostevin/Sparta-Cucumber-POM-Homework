@@ -52,3 +52,11 @@ Feature: BBC Registration
         And I enter a valid date
       When I enter an invalid postcode then go to another field
       Then I get an error telling me that the postcode is invalid
+
+      Scenario:
+      Given I access the BBC login page
+        And I click register now
+        And I click over thirteen
+        And I enter a valid date
+      When I enter a short postcode then go to another field
+      Then I get an error telling me that the postcode is too short

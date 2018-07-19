@@ -73,3 +73,12 @@ end
 Then("I get an error telling me that the postcode is invalid") do
   expect(@bbc_site.bbc_registration.invalid_postcode).to be true
 end
+
+When("I enter a short postcode then go to another field") do
+  @bbc_site.bbc_registration.fill_short_postcode
+  @bbc_site.bbc_registration.enter_valid_email
+end
+
+Then("I get an error telling me that the postcode is too short") do
+  expect(@bbc_site.bbc_registration.short_postcode).to be true
+end
