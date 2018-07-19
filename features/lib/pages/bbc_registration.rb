@@ -135,4 +135,13 @@ class BBC_Registration
     has_content?('Sorry, that postcode isn\'t valid.')
   end
 
+  def fill_short_postcode
+    fill_in('Postcode', with: 'P')
+    sleep 1
+  end
+
+  def short_postcode
+    has_content?('Sorry, that postcode\'s too short.')
+  end
+
 end
